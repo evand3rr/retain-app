@@ -1,0 +1,17 @@
+{
+  "name": "retain",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Retain - a personal expense and budget manager (React + TypeScript + Vite, Node/Express, MongoDB)",
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix frontend install",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix frontend run dev",
+    "seed": "npm --prefix server run seed",
+    "build": "npm --prefix server install && npm --prefix frontend install --include=dev && npm --prefix frontend run build",
+    "start": "npm --prefix server start"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

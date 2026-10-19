@@ -1,0 +1,25 @@
+# Render Blueprint: deploys API and built React client as a single web service.
+# 1. Push the repo to GitHub.
+# 2. In Render: New > Blueprint > select the repo.
+# 3. Fill in the secrets marked "sync: false" (MongoDB Atlas URI, admin credentials).
+services:
+  - type: web
+    name: retain
+    runtime: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_NAME
+        value: Retain Admin
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
